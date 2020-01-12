@@ -224,14 +224,6 @@ def handler(params):
 
 
 if __name__ == '__main__':
-    # timezone = 'Asia/Shanghai'
-    # timezone = 'America/New_York'
-    # timezone = 'America/Montreal'
-    # start_time = '03'
-    # end_time = '04'
-    # thing_group = 'yven-groups-test2'
-    # query_string = 'attributes.address:China_Guangdong*'
-    # document_source = 'https://iot-ota-upgrade-package-feature.s3.ap-south-1.amazonaws.com/ac/hbRqOkoXPsQGinKQ/iot-job.json'
 
     logger.info("start == ")
     arg = sys.argv[1:]
