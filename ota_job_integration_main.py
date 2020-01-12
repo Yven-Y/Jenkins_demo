@@ -31,9 +31,11 @@ REGION = None
 AWS_AK = None
 AWS_SK = None
 
-iot_client = boto3.client('iot', region_name=REGION,
-                          aws_access_key_id=AWS_AK,
-                          aws_secret_access_key=AWS_SK)
+iot_client = None
+
+# iot_client = boto3.client('iot', region_name=REGION,
+#                           aws_access_key_id=AWS_AK,
+#                           aws_secret_access_key=AWS_SK)
 
 logging.basicConfig(level=logging.INFO,
                     format='[%(levelname)s][%(asctime)s][%(filename)s/%(funcName)s][line:%(lineno)d] %(message)s')
@@ -240,6 +242,10 @@ if __name__ == '__main__':
     REGION = aws_agr[0]
     AWS_AK = aws_agr[1]
     AWS_SK = aws_agr[2]
+
+    global iot_client = boto3.client('iot', region_name=REGION,
+                          aws_access_key_id=AWS_AK,
+                          aws_secret_access_key=AWS_SK)
 
     arg = sys.argv[4:]
     params = {
