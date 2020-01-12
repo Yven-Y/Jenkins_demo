@@ -27,7 +27,13 @@ import datetime
 
 import pytz
 
-iot_client = boto3.client('iot')
+REGION = None
+AWS_AK = None
+AWS_SK = None
+
+iot_client = boto3.client('iot', region_name=REGION,
+                          aws_access_key_id=AWS_AK,
+                          aws_secret_access_key=AWS_SK)
 
 logging.basicConfig(level=logging.INFO,
                     format='[%(levelname)s][%(asctime)s][%(filename)s/%(funcName)s][line:%(lineno)d] %(message)s')
@@ -229,8 +235,13 @@ def handler(params):
 
 if __name__ == '__main__':
 
-    logger.info("start == ")
-    arg = sys.argv[1:]
+    logger.info("start == : %s",sys.argv)
+    aws_agr = sys.argv[1:4]
+    REGION = aws_agr[0]
+    AWS_AK = aws_agr[1]
+    AWS_SK = aws_agr[2]
+
+    arg = sys.argv[4:]
     params = {
         "timezone": arg[0],
         "start_time": arg[1],
@@ -240,5 +251,5 @@ if __name__ == '__main__':
         "document_source": arg[5],
     }
     logger.info(params)
-    handler(params)
+    # handler(params)
     logger.info("end == ")
