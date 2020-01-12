@@ -243,7 +243,8 @@ if __name__ == '__main__':
     AWS_AK = aws_agr[1]
     AWS_SK = aws_agr[2]
 
-    global iot_client = boto3.client('iot', region_name=REGION,
+    global iot_client
+    iot_client = boto3.client('iot', region_name=REGION,
                           aws_access_key_id=AWS_AK,
                           aws_secret_access_key=AWS_SK)
 
@@ -257,5 +258,5 @@ if __name__ == '__main__':
         "document_source": arg[5],
     }
     logger.info(params)
-    # handler(params)
+    handler(params)
     logger.info("end == ")
