@@ -258,5 +258,5 @@ if __name__ == '__main__':
         "document_source": arg[5],
     }
     logger.info(params)
-    # handler(params)
+    handler(params)
     logger.info("end == ")
