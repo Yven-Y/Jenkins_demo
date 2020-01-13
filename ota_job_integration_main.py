@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*-coding:utf-8 -*-
 
-# ************************************************************************************************************************
+# ************************************************************
 # @Time       : 2020/1/8 2:48 下午
 # @Author     : yven
 # @Project    : ota-new-demand
@@ -9,16 +9,10 @@
 # @Software   : PyCharm
 # @Version    : 1.0
 # @Description:
-#   1. 根据指定时区的指定时间进行OTA升级或取消OTA升级
-#   2.
-#   3.
-# ************************************************************************************************************************
+#   1. 
+# ************************************************************
 import sys
 
-# TODO Jenkins 运行时需要添加Python path，每个运行环境不一样，需要提前获取sys.path填写在这
-# get sys path: 
-#   import sys
-#   print(sys.path)
 path = ['/usr/local/bin/python3', '//miniconda3/lib/python37.zip', '//miniconda3/lib/python3.7', '//miniconda3/lib/python3.7/lib-dynload', '//miniconda3/lib/python3.7/site-packages']
 for _path in path:
     sys.path.append(_path)
@@ -204,7 +198,9 @@ def handler(params):
         _local_time = get_time(_timezone)
 
         logger.info("local_time=%s,start_time=%s,end_time=%s", _local_time, _start_time, _end_time)
-        if int(_local_time) == int(_start_time):
+        if int(_local_time) < int(_start_time) or int(_local_time) > int(_end_time):
+            logger.info("waiting...")
+        elif int(_start_time) <= int(_local_time) < int(_end_time):
             # 开始创建或更新job
 
             # 1. 获取事物组（可以在 AWS IOT 控制台进行创建，然后获取thing_group_arn）
@@ -240,8 +236,6 @@ def handler(params):
 
 
 if __name__ == '__main__':
-    """
-    """
 
     logger.info("start == : %s",sys.argv)
     aws_agr = sys.argv[1:4]
@@ -264,5 +258,5 @@ if __name__ == '__main__':
         "document_source": arg[5],
     }
     logger.info(params)
-    handler(params)
+    # handler(params)
     logger.info("end == ")
