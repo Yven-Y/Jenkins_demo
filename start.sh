@@ -7,7 +7,7 @@ aws_secret_access_key="******"
 
 # 时区
 timezone="America/Montreal"
-# 其实时间点和结束时间点设置为整点小时，触发时间推荐为半小时触发一次
+# 开始时间点和结束时间点设置为整点小时，触发时间推荐为半小时触发一次
 start_time="01"
 end_time="02"
 
