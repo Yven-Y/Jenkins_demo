@@ -19,9 +19,9 @@ import sys
 # get sys path: 
 #   import sys
 #   print(sys.path)
-path = ['/usr/local/bin/python3', '//miniconda3/lib/python37.zip', '//miniconda3/lib/python3.7', '//miniconda3/lib/python3.7/lib-dynload', '//miniconda3/lib/python3.7/site-packages']
-for _path in path:
-    sys.path.append(_path)
+# path = ['/usr/local/bin/python3', '//miniconda3/lib/python37.zip', '//miniconda3/lib/python3.7', '//miniconda3/lib/python3.7/lib-dynload', '//miniconda3/lib/python3.7/site-packages']
+# for _path in path:
+#     sys.path.append(_path)
 
 import boto3
 
