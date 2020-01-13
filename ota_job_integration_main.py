@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*-coding:utf-8 -*-
 
-# ************************************************************
+# ************************************************************************************************************************
 # @Time       : 2020/1/8 2:48 下午
 # @Author     : yven
 # @Project    : ota-new-demand
@@ -12,9 +12,13 @@
 #   1. 创建事物组（控制台）
 #   2. web后台配置升级参数：物品组arn（可在控制台创建），开始时间，结束时间，S3_url(documentSource),targetSelection，时区
 #   3.
-# ************************************************************
+# ************************************************************************************************************************
 import sys
 
+# TODO Jenkins 运行时需要添加Python path，每个运行环境不一样，需要提前获取sys.path填写在这
+# get sys path: 
+#   import sys
+#   print(sys.path)
 path = ['/usr/local/bin/python3', '//miniconda3/lib/python37.zip', '//miniconda3/lib/python3.7', '//miniconda3/lib/python3.7/lib-dynload', '//miniconda3/lib/python3.7/site-packages']
 for _path in path:
     sys.path.append(_path)
@@ -236,6 +240,8 @@ def handler(params):
 
 
 if __name__ == '__main__':
+    """
+    """
 
     logger.info("start == : %s",sys.argv)
     aws_agr = sys.argv[1:4]
